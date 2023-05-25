@@ -1,0 +1,23 @@
+.dispSet {
+    width: 150px;
+    height: 140px;
+    background: darkcyan;
+    color: white;
+    border: 2px solid greenyellow;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 5px;
+    box-sizing: border-box;
+}
+
+/*.input {*/
+/*    display: inline-block;*/
+/*}*/
+
+/*.errorInput {*/
+/*    background-color: #ff5d5d;*/
+/*}*/

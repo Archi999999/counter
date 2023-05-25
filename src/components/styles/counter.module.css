@@ -1,0 +1,17 @@
+.counter {
+    display: inline-block;
+    margin-top: 100px;
+    border: 2px solid darkolivegreen;
+    border-radius: 10px;
+    padding: 10px;
+    background: #51b9a5;
+}
+
+.buttonsBlock {
+    border: 2px solid greenyellow;
+    border-radius: 10px;
+    padding: 5px 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+}
