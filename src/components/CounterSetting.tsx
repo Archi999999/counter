@@ -1,33 +1,26 @@
-import React, {ChangeEvent} from 'react';
-import {Button} from "./Button";
+import React from 'react';
 import {DisplaySet} from './DisplaySet';
 import s from'./styles/counter.module.css'
+import {useDispatch, useSelector} from "react-redux";
+import {AppRootStateType} from "../store";
+import {settingAC} from "./countReducer";
+import {InitialStateType} from "../App";
 
-type PropsType = {
-    maxValue: number
-    startValue: number
-    disabledSet:boolean
+export const CounterSetting:React.FC = () => {
 
-    setting:()=> void
-    changeMaxValue: (e: ChangeEvent<HTMLInputElement>)=>void
-    changeStartValue: (e: ChangeEvent<HTMLInputElement>)=>void
-}
+    const dispatch = useDispatch()
+    const {disabledSet} = useSelector<AppRootStateType, InitialStateType>(state=> state.countReducer)
 
-export const CounterSetting:React.FC<PropsType> = (
-    {
-        maxValue,
-        startValue,
-        disabledSet,
-        setting,
-        changeMaxValue,
-        changeStartValue,
+
+    const onSetHandler = ()=> {
+        dispatch(settingAC())
     }
-) => {
+
     return (
         <div className={s.counter}>
-            <DisplaySet maxValue={maxValue} startValue={startValue} changeMaxValue={changeMaxValue} changeStartValue={changeStartValue}/>
+            <DisplaySet/>
             <div className={s.buttonsBlock}>
-                <Button onClick={setting} name={'set'} disabled={disabledSet}/>
+                <button onClick={onSetHandler} disabled={disabledSet}>set</button>
             </div>
         </div>
     );

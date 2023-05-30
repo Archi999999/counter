@@ -1,6 +1,16 @@
 import {InitialStateType} from "../App";
 
-export const countReducer = (state: InitialStateType, action: ActionsType): InitialStateType => {
+const initialState:InitialStateType = {
+    currentValue: 0,
+    startValue: 0,
+    maxValue: 0,
+    disabledInc: true,
+    disabledRes: true,
+    disabledSet: true,
+    error: ''
+}
+
+export const countReducer = (state = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
         case 'INCREMENT': {
             return state.currentValue === (state.maxValue - 1)

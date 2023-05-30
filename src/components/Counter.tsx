@@ -1,34 +1,29 @@
 import React from 'react';
-import {Button} from "./Button";
 import { Display } from './Display';
 import s from './styles/counter.module.css'
+import {useDispatch, useSelector} from "react-redux";
+import {incrementAC, resetAC} from "./countReducer";
+import {AppRootStateType} from "../store";
+import {InitialStateType} from "../App";
 
-type PropsType = {
-    value: number
-    disabledInc:boolean
-    disabledRes:boolean
-    increment:()=>void
-    reset:()=>void
-    error:string
-}
-export const Counter:React.FC<PropsType> = (
-    {
-        value,
-        disabledRes,
-        increment,
-        reset,
-        disabledInc,
-        error
+export const Counter:React.FC = () => {
+    const dispatch = useDispatch()
+    const {disabledInc, disabledRes} = useSelector<AppRootStateType,  InitialStateType>(state=> state.countReducer)
+
+    const onIncHandler = () => {
+        dispatch(incrementAC())
     }
-) => {
 
+    const onResHandler = () => {
+        dispatch(resetAC())
+    }
 
     return (
         <div className={s.counter}>
-            <Display value={value} error={error}/>
+            <Display />
             <div className={s.buttonsBlock} >
-                <Button onClick={increment} name={'inc'} disabled={disabledInc}/>
-                <Button onClick={reset} name={'reset'} disabled={disabledRes}/>
+                <button onClick={onIncHandler} disabled={disabledInc}>inc</button>
+                <button onClick={onResHandler} disabled={disabledRes}>reset</button>
             </div>
         </div>
     );
