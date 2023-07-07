@@ -9,7 +9,7 @@ import {InitialStateType} from "../App";
 export const CounterSetting:React.FC = () => {
 
     const dispatch = useDispatch()
-    const {disabledSet} = useSelector<AppRootStateType, InitialStateType>(state=> state.countReducer)
+    const disabledSet = useSelector<AppRootStateType, boolean>(state=> state.counter.disabledSet)
 
 
     const onSetHandler = ()=> {

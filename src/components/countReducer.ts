@@ -65,32 +65,27 @@ type ActionsType =
     | ReturnType<typeof changeMaxValueAC>
     | ReturnType<typeof changeStartValueAC>
 
-
 export const incrementAC = () => {
     return {
         type: 'INCREMENT'
     } as const
 }
-
 export const resetAC = () => {
     return {
         type: 'RESET'
     } as const
 }
-
 export const settingAC = () => {
     return {
         type: 'SETTING'
     } as const
 }
-
 export const changeMaxValueAC = (value: number) => {
     return {
         type: 'CHANGE_MAX_VALUE',
         value
     } as const
 }
-
 export const changeStartValueAC = (value: number) => {
     return {
         type: 'CHANGE_START_VALUE',

@@ -5,7 +5,7 @@ import {AppRootStateType} from "../store";
 
 export const Display:React.FC = () => {
     const {error, currentValue} = useSelector<AppRootStateType, {error: string, currentValue:number}>(state=>{
-        return {error: state.countReducer.error, currentValue: state.countReducer.currentValue}
+        return {error: state.counter.error, currentValue: state.counter.currentValue}
     })
 
     const withoutValueSpanCondition = (error !== 'incorrect value' && error !== "enter values and press 'set'")

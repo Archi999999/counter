@@ -7,7 +7,7 @@ import {changeMaxValueAC, changeStartValueAC} from "./countReducer";
 
 export const DisplaySet:React.FC = () => {
     const dispatch = useDispatch()
-    const {maxValue, startValue} = useSelector<AppRootStateType, InitialStateType>(state=>state.countReducer)
+    const {maxValue, startValue} = useSelector<AppRootStateType, InitialStateType>(state=>state.counter)
     // const className =  `${s.input}
     // ${state.error && s.errorInput}`
 

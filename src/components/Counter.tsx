@@ -8,7 +8,7 @@ import {InitialStateType} from "../App";
 
 export const Counter:React.FC = () => {
     const dispatch = useDispatch()
-    const {disabledInc, disabledRes} = useSelector<AppRootStateType,  InitialStateType>(state=> state.countReducer)
+    const {disabledInc, disabledRes} = useSelector<AppRootStateType,  InitialStateType>(state=> state.counter)
 
     const onIncHandler = () => {
         dispatch(incrementAC())
